@@ -53,7 +53,7 @@
 						<h2>Kort fakta och historik</h2>
 						<ul>
 							<li>
-								Canvas översatt till svenska = målarduk
+								"Canvas" på svenska = målarduk
 							</li>
 							<li>
 								En yta för att rita på med javascript
@@ -76,27 +76,121 @@
 
 				<section>
 					<section>
-						<h2>Hur ser den ut?</h2>
+<h2>Hur ser den ut?</h2>
 <pre><code data-trim>
-&lt;canvas id="paintOnMe" width="300" height="225"&gt;
+&lt;canvas id="paint-on-me" width="300" height="225"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
 &lt;/canvas&gt;
 </code></pre>
-						<canvas id="paintOnMe" width="300" height="225"></canvas>
+						<canvas id="paint-on-me-1" width="300" height="225"></canvas>
+					</section>
+					
+					<section>
+						<h2>En ram för syns skull.</h2>
+<pre><code data-trim>
+&lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
+	Sorry. Din webbläsare stödjer inte canvas.
+&lt;/canvas&gt;
+</code></pre>
+						<canvas id="paint-on-me-2" width="300" height="225" style="border: 1px solid #000000"></canvas>
+					</section>
+					
+					<section>
+<h2>Nödvändig javascript</h2>
+<pre><code data-trim>
+&lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
+	Sorry. Din webbläsare stödjer inte canvas.
+&lt;/canvas&gt;
+
+&lt;script type="text/javascript"&gt;
+var canvas = document.getElementById('paint-on-me');
+
+if (canvas.getContext){
+  var ctx = canvas.getContext('2d');
+  // drawing code here
+} else {
+  // canvas-unsupported code here
+}
+&lt;/script&gt;
+
+</code></pre>
+						<canvas id="paint-on-me-3" width="300" height="225" style="border: 1px solid #000000"></canvas>
+					</section>
+					
+					<section>
+						<h2>Canvas "grid"</h2>
+						<img src="img/Canvas_default_grid.png" width="300" alt="Bild på grid" />
+					</section>
+					
+					
+					<section>
+<h2>Rektanglar</h2>
+<pre><code data-trim>
+&lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
+	Sorry. Din webbläsare stödjer inte canvas.
+&lt;/canvas&gt;
+
+&lt;script type="text/javascript"&gt;
+var canvas = document.getElementById('paint-on-me');
+
+if (canvas.getContext){
+  var ctx = canvas.getContext('2d');
+  // drawing code here
+		ctx.fillStyle = "rgb(200,0,0)";
+		ctx.fillRect (0, 10, 50, 150);
+		
+		ctx.lineWidth = 10;
+		ctx.strokeStyle = "rgb(0,200,0)";
+		ctx.strokeRect(60,60,50,50);
+		
+} else {
+  // canvas-unsupported code here
+}
+&lt;/script&gt;
+</code></pre>
+						<canvas id="paint-on-me-4" width="300" height="225" style="border: 1px solid #000000"></canvas>
+						
+						<script type="text/javascript">
+							var canvas = document.getElementById('paint-on-me-4');
+							
+							if (canvas.getContext){
+							  var ctx = canvas.getContext('2d');
+							  // drawing code here
+									ctx.fillStyle = "rgb(200,0,0)";
+									ctx.fillRect (0, 10, 50, 150);
+									
+									ctx.lineWidth = 10;
+									ctx.strokeStyle = "rgb(0,200,0)";
+									ctx.strokeRect(60,60,50,50);
+							} else {
+							  // canvas-unsupported code here
+							}
+						</script>
+						
 					</section>
 					<section>
-						<h2>En ram.</h2>
-<pre><code data-trim>
-&lt;canvas id="paintOnMe" width="300" height="225" style="border: 1px solid #000000" &gt;
-	Sorry. Din webbläsare stödjer inte canvas.
-&lt;/canvas&gt;
-</code></pre>
-						<canvas id="paintOnMe" width="300" height="225" style="border: 1px solid #000000"></canvas>
+					<h2>Fler former med "path"</h2>
+					
+					<ul>
+						<li>
+							beginPath() <span class="colorgrey">skapar ny path</span>
+						</li>
+						<li>
+							closePath() <span class="colorgrey">skapar ny path</span>
+						</li>
+						<li>
+							stroke() <span class="colorgrey">ritar en linje i pathen</span>
+						</li>
+						<li>
+							fill() <span class="colorgrey">fyller pathen med en t.ex. en färg</span>
+						</li>
+					</ul>
+						
 					</section>
-				</section>
+					
+				</section> <!-- END -->
 
 			</div>
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
