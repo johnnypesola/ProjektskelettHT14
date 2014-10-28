@@ -48,7 +48,7 @@
 					<h3>En kort introduktion</h3>
 				</section>
 
-				<section>
+				<section> <!-- Parent section START -->
 					<section>
 						<h2>Kort fakta och historik</h2>
 						<ul>
@@ -72,11 +72,11 @@
 					<section>
 						<img src="img/dashboard.png">
 					</section>
-				</section>
+				</section> <!-- Parent section END -->
 
-				<section>
+				<section> <!-- Parent section START -->
 					<section>
-<h2>Hur ser den ut?</h2>
+						<h2>Hur ser den ut?</h2>
 <pre><code data-trim>
 &lt;canvas id="paint-on-me" width="300" height="225"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
@@ -96,7 +96,7 @@
 					</section>
 					
 					<section>
-<h2>Nödvändig javascript</h2>
+						<h2>Nödvändig javascript</h2>
 <pre><code data-trim>
 &lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
@@ -122,9 +122,8 @@ if (canvas.getContext){
 						<img src="img/Canvas_default_grid.png" width="300" alt="Bild på grid" />
 					</section>
 					
-					
 					<section>
-<h2>Rektanglar</h2>
+						<h2>Rektanglar</h2>
 <pre><code data-trim>
 &lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
@@ -206,7 +205,7 @@ if (canvas.getContext){
 					</section>
 					
 					<section>
-<h2>En smiley :-)</h2>
+						<h2>En smiley :-)</h2>
 <pre><code data-trim>
 &lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
@@ -266,12 +265,12 @@ if (canvas.getContext){
 						</script>
 						
 					</section>
-				</section> <!-- END -->
+				</section> <!-- Parent section END -->
 				
-				<section>
+				<section> <!-- Parent section START -->
 				
 					<section>
-<h2>Läs in och placera bild</h2>
+						<h2>Läs in och placera bild</h2>
 <pre><code data-trim>
 &lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
@@ -324,18 +323,24 @@ if (canvas.getContext){
 					</section>
 					
 					<section>
-					
-
-<h2>Rita ut en del av bild</h2>
-<p>
-	Görs med metoden drawImage med hjälp av extra parametrar.
-</p>
-<img src="img/Canvas_drawimage.jpg" alt="Hur bilden beskärs">
-<pre><code>drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</code></pre>
+						<h2>Rita ut en del av bild</h2>
+						<p>
+							Görs med metoden drawImage med hjälp av extra parametrar.
+						</p>
+						<img src="img/Canvas_drawimage.jpg" alt="Hur bilden beskärs">
+						<pre><code>drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</code></pre>
 					</section>
 					
 					<section>
-<h2>Animera gubben</h2>
+						<h2>Rita bild i en tidsintervall</h2>
+						<p>
+							Görs med funktionen setInterval
+						</p>
+						<pre><code>setInterval(functionName, miliseconds)</code></pre>
+					</section>
+
+					<section>
+					<h2>Animera gubben</h2>
 <pre><code data-trim>
 &lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
 	Sorry. Din webbläsare stödjer inte canvas.
@@ -512,7 +517,25 @@ function DrawAnimation()
 						
 					</section>
 				
-				</section> <!-- END -->
+				</section> <!-- Parent Section END -->
+				
+				<section> <!-- Parent Section START -->
+					<section>
+						<h2>Webbläsarstöd</h2>
+							<img src="img/canvas_browser_support.gif" alt="Canvas stöds i alla webbläsare">
+					</section>
+					<section>
+						<h2>Bra info om canvas</h2>
+						<ul>
+							<li>Tutorial: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial</a></li>
+							<li>2d och 3d exempel: <a href="http://www.kevs3d.co.uk/dev/">http://www.kevs3d.co.uk/dev/</a></li>
+							<li>Webbläsarstöd: <a href="http://caniuse.com/#search=canvas">http://caniuse.com/#search=canvas</a></li>
+						</ul>
+					</section>
+
+				</section>
+
+
 
 			</div>
 		</div>
