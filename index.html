@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>canvas taggen</title>
+		<title>Canvas taggen</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -225,10 +225,13 @@ if (canvas.getContext){
     ctx.fillStyle = "rgb(255,255,0)";
     ctx.fill();
     ctx.moveTo(110,75);
+    
     ctx.arc(75,75,35,0,Math.PI,false);   // Mouth (clockwise)
     ctx.moveTo(65,65);
+    
     ctx.arc(60,65,5,0,Math.PI*2,true);  // Left eye
     ctx.moveTo(95,65);
+    
     ctx.arc(90,65,5,0,Math.PI*2,true);  // Right eye
     ctx.stroke();
 		
@@ -299,10 +302,10 @@ if (canvas.getContext){
 						<canvas id="paint-on-me-6" width="300" height="225" style="border: 1px solid #000000"></canvas>
 						
 						<script type="text/javascript">
-							var canvas = document.getElementById('paint-on-me-6');
+							var canvas1 = document.getElementById('paint-on-me-6');
 							
-							if (canvas.getContext){
-							  var ctx = canvas.getContext('2d');
+							if (canvas1.getContext){
+							  var ctx = canvas1.getContext('2d');
 							  // drawing code here
 								var img = new Image();   // Create img element
 								
@@ -311,11 +314,200 @@ if (canvas.getContext){
 								  ctx.drawImage(img,0,0);
 								};
 								
-								img.src = 'img/indy_s_standing.gif'; // Set source path
+								img.src = 'img/indy_walking_s.gif'; // Set source path
 								
 							} else {
 							  // canvas-unsupported code here
 							}
+						</script>
+						
+					</section>
+					
+					<section>
+					
+
+<h2>Rita ut en del av bild</h2>
+<p>
+	Görs med metoden drawImage med hjälp av extra parametrar.
+</p>
+<img src="img/Canvas_drawimage.jpg" alt="Hur bilden beskärs">
+<pre><code>drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</code></pre>
+					</section>
+					
+					<section>
+<h2>Animera gubben</h2>
+<pre><code data-trim>
+&lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
+	Sorry. Din webbläsare stödjer inte canvas.
+&lt;/canvas&gt;
+
+&lt;script type="text/javascript"&gt;
+var canvas = document.getElementById('paint-on-me-7');
+
+if (canvas.getContext)
+{
+	var ctx = canvas.getContext('2d');
+	var img = new Image();
+	var currentX = 0;
+	var currentY = 0;
+	var currentFrame = 0;
+	var animAsc = true;
+	var animationSpeed = 40;
+	
+	// Declare frame cordinates for animation in Image
+	var animDataArray = [
+												[0, 0, 30, 68],	// Frame 0, Walking, Left foot forward
+												[30, 0, 25, 68], // Frame 1, Standing
+												[55, 0, 32, 68] // Frame 2, Walking, Right foot forward
+	];
+
+	// Execute animation interval onload
+	img.onload = function() {
+	  setInterval(DrawAnimation, animationSpeed);
+	};
+	
+	// Load animation image
+	img.src = 'img/indy_walking_s.gif';
+}
+
+// Declare draw animation function
+function DrawAnimation()
+{
+	ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas since last frame
+	
+	ctx.drawImage(
+									img,
+									animDataArray[currentFrame][0],
+									animDataArray[currentFrame][1],
+									animDataArray[currentFrame][2],
+									animDataArray[currentFrame][3],
+									currentX,
+									currentY,
+									animDataArray[currentFrame][2],
+									animDataArray[currentFrame][3]
+	);
+	
+	// Move animation
+	currentX +=2;
+	currentY +=1;
+	
+	// Restart animation if we reached the canvas limits
+	if(currentX >= (canvas.width - animDataArray[currentFrame][2]) || currentY >= (canvas.height - animDataArray[currentFrame][3]))
+	{
+		currentX = 0;
+		currentY = 0;
+	}
+	
+	// Next frame every 8 pixel movement
+	if(currentX % 8 == 0)
+	{
+		// Check which direction the animation is heading.
+		if(animAsc)
+		{
+			currentFrame++;
+		}
+		else
+		{
+			currentFrame--;
+		}
+	}
+	
+	// Change animation direction on reaching the last or first frame 
+	if(currentFrame == 2)
+	{
+		animAsc = false;
+	}
+	else if(currentFrame == 0)
+	{
+		animAsc = true;
+	}
+}
+&lt;/script&gt;
+</code></pre>
+						<canvas id="paint-on-me-7" width="300" height="225" style="border: 1px solid #000000"></canvas>
+						
+						<script type="text/javascript">
+							var canvas = document.getElementById('paint-on-me-7');
+							
+							if (canvas.getContext)
+							{
+						  	var ctx2 = canvas.getContext('2d');
+								var img2 = new Image();
+								var currentX = 0;
+								var currentY = 0;
+								var currentFrame = 0;
+								var animAsc = true;
+								var animationSpeed = 40;
+								
+								// Declare frame cordinates for animation in Image
+								var animDataArray = [
+																			[0, 0, 30, 68],	// Frame 0, Walking, Left foot forward
+																			[30, 0, 25, 68], // Frame 1, Standing
+																			[55, 0, 32, 68] // Frame 2, Walking, Right foot forward
+								];
+
+								// Execute animation interval onload
+								img2.onload = function() {
+								  setInterval(DrawAnimation, animationSpeed);
+								};
+								
+								// Load animation image
+								img2.src = 'img/indy_walking_s.gif';
+							}
+							
+							// Declare draw animation function
+							function DrawAnimation()
+							{
+								ctx2.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas since last frame
+								
+								ctx2.drawImage(
+																img2,
+																animDataArray[currentFrame][0],
+																animDataArray[currentFrame][1],
+																animDataArray[currentFrame][2],
+																animDataArray[currentFrame][3],
+																currentX,
+																currentY,
+																animDataArray[currentFrame][2],
+																animDataArray[currentFrame][3]
+								);
+								
+								// Move animation
+								currentX +=2;
+								currentY +=1;
+								
+								// Restart animation if we reached the canvas limits
+								if(currentX >= (canvas.width - animDataArray[currentFrame][2]) || currentY >= (canvas.height - animDataArray[currentFrame][3]))
+								{
+									currentX = 0;
+									currentY = 0;
+								}
+								
+								// Next frame every 8 pixel movement
+								if(currentX % 8 == 0)
+								{
+									// Check which direction the animation is heading.
+									if(animAsc)
+									{
+										currentFrame++;
+									}
+									else
+									{
+										currentFrame--;
+									}
+								}
+								
+								// Change animation direction on reaching the last or first frame 
+								if(currentFrame == 2)
+								{
+									animAsc = false;
+								}
+								else if(currentFrame == 0)
+								{
+									animAsc = true;
+								}
+							}
+							
 						</script>
 						
 					</section>
