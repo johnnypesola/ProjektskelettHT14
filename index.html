@@ -135,7 +135,9 @@ var canvas = document.getElementById('paint-on-me');
 
 if (canvas.getContext){
   var ctx = canvas.getContext('2d');
+  
   // drawing code here
+  
 		ctx.fillStyle = "rgb(200,0,0)";
 		ctx.fillRect (0, 10, 50, 150);
 		
@@ -215,7 +217,9 @@ var canvas = document.getElementById('paint-on-me');
 
 if (canvas.getContext){
   var ctx = canvas.getContext('2d');
+  
   // drawing code here
+  
     ctx.beginPath();
     ctx.arc(75,75,50,0,Math.PI*2,true); // Outer circle
     ctx.fillStyle = "rgb(255,255,0)";
@@ -259,7 +263,63 @@ if (canvas.getContext){
 						</script>
 						
 					</section>
-					
+				</section> <!-- END -->
+				
+				<section>
+				
+					<section>
+<h2>Läs in och placera bild</h2>
+<pre><code data-trim>
+&lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
+	Sorry. Din webbläsare stödjer inte canvas.
+&lt;/canvas&gt;
+
+&lt;script type="text/javascript"&gt;
+var canvas = document.getElementById('paint-on-me');
+
+if (canvas.getContext){
+  var ctx = canvas.getContext('2d');
+  
+  // drawing code here
+  
+		var img = new Image();   // Create img element
+		
+		img.onload = function() {
+		  // execute drawImage statements here
+		  ctx.drawImage(img,0,0);
+		};
+		
+		img.src = 'img/indy_s_standing.gif'; // Set source path
+		
+} else {
+  // canvas-unsupported code here
+}
+&lt;/script&gt;
+</code></pre>
+						<canvas id="paint-on-me-6" width="300" height="225" style="border: 1px solid #000000"></canvas>
+						
+						<script type="text/javascript">
+							var canvas = document.getElementById('paint-on-me-6');
+							
+							if (canvas.getContext){
+							  var ctx = canvas.getContext('2d');
+							  // drawing code here
+								var img = new Image();   // Create img element
+								
+								img.onload = function() {
+								  // execute drawImage statements here
+								  ctx.drawImage(img,0,0);
+								};
+								
+								img.src = 'img/indy_s_standing.gif'; // Set source path
+								
+							} else {
+							  // canvas-unsupported code here
+							}
+						</script>
+						
+					</section>
+				
 				</section> <!-- END -->
 
 			</div>
