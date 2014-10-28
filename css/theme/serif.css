@@ -136,3 +136,10 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #51483d; }
+
+/*********************************************
+ * CUSTOM COLORS added by Johnny
+ *********************************************/
+ .colorgrey {
+  color: #aaaaaa !important;
+ }
