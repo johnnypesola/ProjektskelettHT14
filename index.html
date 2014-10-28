@@ -169,22 +169,94 @@ if (canvas.getContext){
 						
 					</section>
 					<section>
-					<h2>Fler former med "path"</h2>
+					<h2>Fler former med "path" metoder</h2>
 					
 					<ul>
 						<li>
-							beginPath() <span class="colorgrey">skapar ny path</span>
+							ctx.beginPath() <span class="colorgrey">skapar ny path</span>
 						</li>
 						<li>
-							closePath() <span class="colorgrey">skapar ny path</span>
+							ctx.closePath() <span class="colorgrey">stänger aktuell path</span>
 						</li>
 						<li>
-							stroke() <span class="colorgrey">ritar en linje i pathen</span>
+							ctx.stroke() <span class="colorgrey">ritar en linje i senast stängda path</span>
 						</li>
 						<li>
-							fill() <span class="colorgrey">fyller pathen med en t.ex. en färg</span>
+							ctx.fill() <span class="colorgrey">fyller senast stängda path med en t.ex. en färg</span>
+						</li>
+						<li style="margin-top: 10px">
+							ctx.moveTo(x, y) <span class="colorgrey">Flyttar ritmarkör till kordinat i aktuell path</span>
+						</li>
+						<li>
+							ctx.lineTo(x, y) <span class="colorgrey">Ritar linje till kordinat i aktuell path</span>
+						</li>
+						<li style="margin-top: 10px">
+							ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise) <span class="colorgrey">Ritar en båge i aktuell path</span>
+						</li>
+						<li>
+							ctx.arcTo(x, y) <span class="colorgrey">Ritar en båge till angiven kordinat i aktuell path</span>
+						</li>
+						<li>
+							ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) <span class="colorgrey">Ritar en bezier-båge till angiven kordinat i aktuell path</span>
 						</li>
 					</ul>
+						
+					</section>
+					
+					<section>
+<h2>En smiley :-)</h2>
+<pre><code data-trim>
+&lt;canvas id="paint-on-me" width="300" height="225" style="border: 1px solid #000000"&gt;
+	Sorry. Din webbläsare stödjer inte canvas.
+&lt;/canvas&gt;
+
+&lt;script type="text/javascript"&gt;
+var canvas = document.getElementById('paint-on-me');
+
+if (canvas.getContext){
+  var ctx = canvas.getContext('2d');
+  // drawing code here
+    ctx.beginPath();
+    ctx.arc(75,75,50,0,Math.PI*2,true); // Outer circle
+    ctx.fillStyle = "rgb(255,255,0)";
+    ctx.fill();
+    ctx.moveTo(110,75);
+    ctx.arc(75,75,35,0,Math.PI,false);   // Mouth (clockwise)
+    ctx.moveTo(65,65);
+    ctx.arc(60,65,5,0,Math.PI*2,true);  // Left eye
+    ctx.moveTo(95,65);
+    ctx.arc(90,65,5,0,Math.PI*2,true);  // Right eye
+    ctx.stroke();
+		
+} else {
+  // canvas-unsupported code here
+}
+&lt;/script&gt;
+</code></pre>
+						<canvas id="paint-on-me-5" width="300" height="225" style="border: 1px solid #000000"></canvas>
+						<img class="fragment" src="img/Canvas_smiley.png" />
+						
+						<script type="text/javascript">
+							var canvas = document.getElementById('paint-on-me-5');
+							
+							if (canvas.getContext){
+							  var ctx = canvas.getContext('2d');
+							  // drawing code here
+						    ctx.beginPath();
+						    ctx.arc(105,105,50,0,Math.PI*2,true); // Outer circle
+						    ctx.fillStyle = "rgb(255,255,0)";
+						    ctx.fill();
+						    ctx.moveTo(140,105);
+						    ctx.arc(105,105,35,0,Math.PI,false);   // Mouth (clockwise)
+						    ctx.moveTo(95,95);
+						    ctx.arc(90,95,5,0,Math.PI*2,true);  // Left eye
+						    ctx.moveTo(125,95);
+						    ctx.arc(120,95,5,0,Math.PI*2,true);  // Right eye
+						    ctx.stroke();
+							} else {
+							  // canvas-unsupported code here
+							}
+						</script>
 						
 					</section>
 					
