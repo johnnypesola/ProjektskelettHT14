@@ -52,20 +52,20 @@
 					<section>
 						<h2>Kort fakta och historik</h2>
 						<ul>
-							<li>
+							<li class="more-space">
 								"Canvas" på svenska = målarduk
 							</li>
-							<li>
+							<li class="more-space">
 								En yta för att rita på med javascript
 							</li>
-							<li>
+							<li class="more-space">
 								Introducerades av Apple 2004 för användning i Dashboard och Webkit (Safari)
 							</li>
-							<li>
-								En del av processen att ersätta Adobe flash, Microsoft Silverlight mfl.
+							<li class="more-space">
+								Ingår i html5 standarden
 							</li>
-							<li>
-								Canvas Ingår i html5
+							<li class="more-space">
+								En del av processen att ersätta Adobe flash, Microsoft Silverlight mfl.
 							</li>
 						</ul>
 					</section>
@@ -170,34 +170,34 @@ if (canvas.getContext){
 						
 					</section>
 					<section>
-					<h2>Fler former med "path" metoder</h2>
+					<h2>Former med path metoder</h2>
 					
 					<ul>
-						<li>
+						<li class="more-space">
 							ctx.beginPath() <span class="colorgrey">skapar ny path</span>
 						</li>
-						<li>
+						<li class="more-space">
 							ctx.closePath() <span class="colorgrey">stänger aktuell path</span>
-						</li>
+						</li >
 						<li>
 							ctx.stroke() <span class="colorgrey">ritar en linje i senast stängda path</span>
 						</li>
-						<li>
+						<li class="more-space">
 							ctx.fill() <span class="colorgrey">fyller senast stängda path med en t.ex. en färg</span>
 						</li>
-						<li style="margin-top: 10px">
+						<li class="more-space">
 							ctx.moveTo(x, y) <span class="colorgrey">Flyttar ritmarkör till kordinat i aktuell path</span>
 						</li>
-						<li>
+						<li class="more-space">
 							ctx.lineTo(x, y) <span class="colorgrey">Ritar linje till kordinat i aktuell path</span>
 						</li>
-						<li style="margin-top: 10px">
+						<li class="more-space">
 							ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise) <span class="colorgrey">Ritar en båge i aktuell path</span>
 						</li>
-						<li>
+						<li class="more-space">
 							ctx.arcTo(x, y) <span class="colorgrey">Ritar en båge till angiven kordinat i aktuell path</span>
 						</li>
-						<li>
+						<li class="more-space">
 							ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) <span class="colorgrey">Ritar en bezier-båge till angiven kordinat i aktuell path</span>
 						</li>
 					</ul>
@@ -223,7 +223,7 @@ if (canvas.getContext){
     ctx.arc(75,75,50,0,Math.PI*2,true); // Outer circle
     ctx.fillStyle = "rgb(255,255,0)";
     ctx.fill();
-    ctx.moveTo(110,75);
+    //ctx.moveTo(110,75);
     
     ctx.arc(75,75,35,0,Math.PI,false);   // Mouth (clockwise)
     ctx.moveTo(65,65);
@@ -252,7 +252,7 @@ if (canvas.getContext){
 						    ctx.arc(105,105,50,0,Math.PI*2,true); // Outer circle
 						    ctx.fillStyle = "rgb(255,255,0)";
 						    ctx.fill();
-						    ctx.moveTo(140,105);
+						    //ctx.moveTo(140,105);
 						    ctx.arc(105,105,35,0,Math.PI,false);   // Mouth (clockwise)
 						    ctx.moveTo(95,95);
 						    ctx.arc(90,95,5,0,Math.PI*2,true);  // Left eye
@@ -524,18 +524,19 @@ function DrawAnimation()
 						<h2>Webbläsarstöd</h2>
 							<img src="img/canvas_browser_support.gif" alt="Canvas stöds i alla webbläsare">
 					</section>
+					
 					<section>
-						<h2>Bra info om canvas</h2>
+						<h2>Mer info om canvas</h2>
 						<ul>
-							<li>Tutorial: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial</a></li>
-							<li>2d och 3d exempel: <a href="http://www.kevs3d.co.uk/dev/">http://www.kevs3d.co.uk/dev/</a></li>
-							<li>Webbläsarstöd: <a href="http://caniuse.com/#search=canvas">http://caniuse.com/#search=canvas</a></li>
+							<li class="more-space">Hakims Experiment <a href="http://hakim.se/experiments">http://hakim.se/experiments</a></li>
+							<li class="more-space">Tutorial: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial</a></li>
+							<li class="more-space">2d och 3d exempel: <a href="http://www.kevs3d.co.uk/dev/">http://www.kevs3d.co.uk/dev/</a></li>
+							<li class="more-space">Webbläsarstöd: <a href="http://caniuse.com/#search=canvas">http://caniuse.com/#search=canvas</a></li>
+							<li class="more-space">Ett halvfärdigt spel gjort i canvas. <a href="http://www.pesola.se/barfight">www.pesola.se/barfight</a></li>
 						</ul>
 					</section>
-
+					
 				</section>
-
-
 
 			</div>
 		</div>
